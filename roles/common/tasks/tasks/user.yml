@@ -1,0 +1,8 @@
+---
+- name: Users | {{ user }} - should exist and be in group {{ group }}.
+  user: name={{ user }} shell=/bin/bash group={{ group }} append=yes
+
+- name: Users | {{ user }} - adding authorized key.
+  authorized_key: user={{ user }} key="{{ item }}"
+  with_file:
+  - "{{ keypath }}"

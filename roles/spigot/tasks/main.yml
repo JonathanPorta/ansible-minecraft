@@ -1,0 +1,15 @@
+---
+# Install a spigot server
+- name: Spigot Server | {{ username }} should exist.
+  user: name={{ username }}
+
+- name: Spigot Server | Installation directory should exist.
+  shell: mkdir -p {{ installation_directory }}
+  args:
+    creates: "{{ installation_directory }}"
+
+- name: Spigot Server | Download jar file.
+  action: get_url url={{ jar_download }} dest={{ installation_directory }}spigot.jar
+
+- name: Spigot Server | start.sh should exist.
+  template: src=start.sh dest={{ installation_directory }}start.sh owner={{ username }} group={{ username }} mode=0755

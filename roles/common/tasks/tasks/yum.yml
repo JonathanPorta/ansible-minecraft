@@ -1,0 +1,15 @@
+---
+# Install some YUM packages and make sure the system is up to date.
+- name: Yum | Update system.
+  yum: name=* state=latest
+
+- name: Yum | Install user tools.
+  yum: name={{ item }} state=latest
+  with_items:
+  - vim
+  - git
+  - wget
+
+# Install the JVM
+- name: Java | Install JVM
+  yum: name=java-1.7.0-openjdk state=latest

@@ -1,0 +1,3 @@
+---
+- name: Sudoers | Make sure wheel group can sudo with out password.
+  lineinfile: dest=/etc/sudoers state=present regexp='^%wheel' line='%wheel ALL=(ALL) NOPASSWD:ALL' validate='visudo -cf %s' backup='yes'

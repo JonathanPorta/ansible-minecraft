@@ -1,0 +1,6 @@
+---
+# Variables used by all hosts types.
+
+repository: 'git://github.com/JonathanPorta/train.git'
+install_directory: '/opt/train/'
+version: 'master'

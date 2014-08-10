@@ -1,0 +1,6 @@
+---
+# Variables used by dev hosts.
+
+port: 4000
+node_env: development
+node_arch: "linux-x64"

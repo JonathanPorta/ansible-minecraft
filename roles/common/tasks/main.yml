@@ -1,0 +1,5 @@
+---
+- include: tasks/sudoers.yml
+- include: tasks/user.yml user={{ admin_user }} group={{ admin_group }} keypath={{ admin_key }}
+- include: tasks/ssh.yml
+- include: tasks/yum.yml

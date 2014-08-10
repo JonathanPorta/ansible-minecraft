@@ -1,0 +1,6 @@
+---
+# Variables used by production hosts.
+
+port: 80
+node_env: live
+node_arch: "linux-arm-pi"

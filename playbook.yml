@@ -1,0 +1,18 @@
+---
+# Minecraft Server Provisioning and Management
+- name: Minecraft Playbook - Deploy and manage Minecraft Server.
+  hosts: all
+  user: portaj
+  sudo: yes
+
+  vars:
+    admin_user: portaj
+    admin_group: wheel
+    admin_key: /home/portaj/.ssh/id_rsa.pub
+
+  roles:
+  - common
+  - spigot
+  # - nodejs
+  # - train
+  # - headless
