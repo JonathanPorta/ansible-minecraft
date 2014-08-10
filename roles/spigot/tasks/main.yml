@@ -27,6 +27,9 @@
 - name: Spigot Server | spigot.yml should exist.
   template: src=spigot.yml dest={{ installation_directory }}spigot.yml owner={{ username }} group={{ username }} mode=0655
 
+- name: Spigot Server | ops.json should exist
+  template: src=ops.json dest={{ installation_directory }}ops.json owner={{ username }} group={{ username }} mode=0655
+
 - name: Spigot Server | server.properties should exist.
   template: src=server.properties dest={{ installation_directory }}server.properties owner={{ username }} group={{ username }} mode=0655
 
