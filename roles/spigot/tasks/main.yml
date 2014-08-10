@@ -13,3 +13,15 @@
 
 - name: Spigot Server | start.sh should exist.
   template: src=start.sh dest={{ installation_directory }}start.sh owner={{ username }} group={{ username }} mode=0755
+
+- name: Spigot Server | agree to EULA.
+  copy: src=eula.txt dest={{ installation_directory }}eula.txt owner={{ username }} group={{ username }} mode=0655
+
+- name: Spigot Server | bukkit.yml should exist.
+  template: src=bukkit.yml dest={{ installation_directory }}bukkit.yml owner={{ username }} group={{ username }} mode=0655
+
+- name: Spigot Server | spigot.yml should exist.
+  template: src=spigot.yml dest={{ installation_directory }}spigot.yml owner={{ username }} group={{ username }} mode=0655
+
+- name: Spigot Server | server.properties should exist.
+  template: src=server.properties dest={{ installation_directory }}server.properties owner={{ username }} group={{ username }} mode=0655
