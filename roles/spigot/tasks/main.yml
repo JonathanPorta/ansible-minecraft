@@ -4,12 +4,16 @@
   user: name={{ username }}
 
 - name: Spigot Server | Installation directory should exist.
-  shell: mkdir -p {{ installation_directory }}
+  shell: mkdir -p {{ installation_directory }} owner={{ username }} group={{ username }} mode=0755
   args:
     creates: "{{ installation_directory }}"
 
+- file: path={{ installation_directory }} owner={{ username }} group={{ username }} mode=0755
+
 - name: Spigot Server | Download jar file.
   action: get_url url={{ jar_download }} dest={{ installation_directory }}spigot.jar
+
+- file: path={{ installation_directory }}spigot.jar owner={{ username }} group={{ username }} mode=0755
 
 - name: Spigot Server | start.sh should exist.
   template: src=start.sh dest={{ installation_directory }}start.sh owner={{ username }} group={{ username }} mode=0755
@@ -25,3 +29,12 @@
 
 - name: Spigot Server | server.properties should exist.
   template: src=server.properties dest={{ installation_directory }}server.properties owner={{ username }} group={{ username }} mode=0655
+
+- name: Spigot Server | systemd service file should exist.
+  template: src=systemd.service dest=/etc/systemd/system/spigot-{{ port }}.service
+
+- name: Spigot Server | systemd should reload
+  command: systemctl daemon-reload
+
+- name: Spigot Server | restart the service and make sure it is enabeld.
+  action: service name=spigot-{{ port }} state=restarted enabled=yes
