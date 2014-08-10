@@ -9,6 +9,7 @@
   - vim
   - git
   - wget
+  - screen
 
 # Install the JVM
 - name: Java | Install JVM

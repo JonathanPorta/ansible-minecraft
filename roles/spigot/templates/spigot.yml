@@ -20,7 +20,7 @@ settings:
   int-cache-limit: 1024
   moved-wrongly-threshold: 0.0625
   moved-too-quickly-threshold: 100.0
-  bungeecord: false
+  bungeecord: true
   late-bind: false
   timeout-time: 60
   restart-on-crash: true

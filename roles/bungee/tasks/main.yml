@@ -18,17 +18,8 @@
 - name: Bungee Server | start.sh should exist.
   template: src=start.sh dest={{ installation_directory }}start.sh owner={{ username }} group={{ username }} mode=0755
 
-# - name: Bungee Server | agree to EULA.
-#   copy: src=eula.txt dest={{ installation_directory }}eula.txt owner={{ username }} group={{ username }} mode=0655
-
-# - name: Bungee Server | bukkit.yml should exist.
-#   template: src=bukkit.yml dest={{ installation_directory }}bukkit.yml owner={{ username }} group={{ username }} mode=0655
-
-# - name: Bungee Server | spigot.yml should exist.
-#   template: src=spigot.yml dest={{ installation_directory }}spigot.yml owner={{ username }} group={{ username }} mode=0655
-
-# - name: Bungee Server | server.properties should exist.
-#   template: src=server.properties dest={{ installation_directory }}server.properties owner={{ username }} group={{ username }} mode=0655
+- name: Bungee Server | config.yml should exist.
+  template: src=config.yml dest={{ installation_directory }}config.yml owner={{ username }} group={{ username }} mode=0655
 
 - name: Bungee Server | systemd service file should exist.
   template: src=systemd.service dest=/etc/systemd/system/bungee-{{ port }}.service

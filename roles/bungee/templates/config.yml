@@ -1,0 +1,40 @@
+groups:
+  rurd4me:
+  - admin
+disabled_commands:
+- disabledcommandhere
+player_limit: -1
+stats: 278184fe-f622-4e7d-964b-e0c903951772
+permissions:
+  default:
+  - bungeecord.command.server
+  - bungeecord.command.list
+  admin:
+  - bungeecord.command.alert
+  - bungeecord.command.end
+  - bungeecord.command.ip
+  - bungeecord.command.reload
+listeners:
+- max_players: 1
+  fallback_server: lobby
+  host: 0.0.0.0:25565
+  bind_local_address: true
+  ping_passthrough: false
+  tab_list: GLOBAL_PING
+  default_server: lobby
+  forced_hosts:
+    pvp.md-5.net: pvp
+  tab_size: 60
+  force_default_server: false
+  motd: '&1Another Bungee server'
+  query_enabled: true
+  query_port: 25565
+timeout: 30000
+connection_throttle: 4000
+servers:
+  lobby:
+    address: localhost:25566
+    restricted: false
+    motd: '&The Lobby'
+ip_forward: true
+online_mode: true

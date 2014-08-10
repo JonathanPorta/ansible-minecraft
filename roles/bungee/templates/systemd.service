@@ -5,9 +5,10 @@ After=network.target
 [Service]
 User={{ username }}
 Group={{ username }}
+Type=oneshot
+RemainAfterExit=yes
 WorkingDirectory={{ installation_directory }}
 ExecStart={{ installation_directory }}start.sh
-Restart=always
 SyslogIdentifier=bungee-{{ port }}
 
 [Install]
