@@ -15,7 +15,7 @@ permissions:
   - bungeecord.command.ip
   - bungeecord.command.reload
 listeners:
-- max_players: 1
+- max_players: 176
   fallback_server: lobby
   host: 0.0.0.0:25565
   bind_local_address: true
@@ -26,7 +26,7 @@ listeners:
     pvp.md-5.net: pvp
   tab_size: 60
   force_default_server: false
-  motd: '&1Another Bungee server'
+  motd: '&6P&0A&6N&0C&6R&0A&6F&0T'
   query_enabled: true
   query_port: 25565
 timeout: 30000

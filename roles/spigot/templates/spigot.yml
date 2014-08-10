@@ -110,7 +110,7 @@ world-settings:
     seed-village: 10387312
     seed-feature: 14357617
     mob-spawn-range: 4
-    view-distance: 10
+    view-distance: 15
     chunks-per-tick: 650
     clear-tick-list: false
     merge-radius:
