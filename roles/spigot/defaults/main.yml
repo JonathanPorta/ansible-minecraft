@@ -2,4 +2,3 @@
 username: mc
 installation_directory: /home/mc/spigot/
 jar_download: http://ci.md-5.net/job/Spigot/lastSuccessfulBuild/artifact/Spigot-Server/target/spigot.jar
-port: 25565

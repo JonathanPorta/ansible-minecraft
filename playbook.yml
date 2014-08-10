@@ -12,7 +12,5 @@
 
   roles:
   - common
-  - spigot
-  # - nodejs
-  # - train
-  # - headless
+  - { role: spigot, port: 25566 }
+  - { role: bungee, port: 25565 }

@@ -1,0 +1,11 @@
+---
+
+- name: systemd-daemon
+  command: systemctl daemon-reload
+
+# TODO: Figure out a way to make a wildcard reload of all servies of a "type"
+- name: spigot-services
+  action: service name=spigot-* state=restarted enabled=yes
+
+- name: bungee-service
+  action: service name=bungee-* state=restarted enabled=yes

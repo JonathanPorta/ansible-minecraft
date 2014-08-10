@@ -1,0 +1,14 @@
+[Unit]
+Description=Bungee Server on port {{ port }}
+After=network.target
+
+[Service]
+User={{ username }}
+Group={{ username }}
+WorkingDirectory={{ installation_directory }}
+ExecStart={{ installation_directory }}start.sh
+Restart=always
+SyslogIdentifier=bungee-{{ port }}
+
+[Install]
+WantedBy=network.target

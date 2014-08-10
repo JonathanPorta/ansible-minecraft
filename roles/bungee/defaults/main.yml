@@ -1,0 +1,4 @@
+# Defaults
+username: bungee
+installation_directory: /home/bungee/
+jar_download: http://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar

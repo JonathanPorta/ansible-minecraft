@@ -1,0 +1,40 @@
+---
+# Install a bungee server
+- name: Bungee Server | {{ username }} should exist.
+  user: name={{ username }}
+
+- name: Bungee Server | Installation directory should exist.
+  shell: mkdir -p {{ installation_directory }} owner={{ username }} group={{ username }} mode=0755
+  args:
+    creates: "{{ installation_directory }}"
+
+- file: path={{ installation_directory }} owner={{ username }} group={{ username }} mode=0755
+
+- name: Bungee Server | Download jar file.
+  action: get_url url={{ jar_download }} dest={{ installation_directory }}bungee.jar
+
+- file: path={{ installation_directory }}bungee.jar owner={{ username }} group={{ username }} mode=0755
+
+- name: Bungee Server | start.sh should exist.
+  template: src=start.sh dest={{ installation_directory }}start.sh owner={{ username }} group={{ username }} mode=0755
+
+# - name: Bungee Server | agree to EULA.
+#   copy: src=eula.txt dest={{ installation_directory }}eula.txt owner={{ username }} group={{ username }} mode=0655
+
+# - name: Bungee Server | bukkit.yml should exist.
+#   template: src=bukkit.yml dest={{ installation_directory }}bukkit.yml owner={{ username }} group={{ username }} mode=0655
+
+# - name: Bungee Server | spigot.yml should exist.
+#   template: src=spigot.yml dest={{ installation_directory }}spigot.yml owner={{ username }} group={{ username }} mode=0655
+
+# - name: Bungee Server | server.properties should exist.
+#   template: src=server.properties dest={{ installation_directory }}server.properties owner={{ username }} group={{ username }} mode=0655
+
+- name: Bungee Server | systemd service file should exist.
+  template: src=systemd.service dest=/etc/systemd/system/bungee-{{ port }}.service
+
+- name: Bungee Server | systemd should reload
+  command: systemctl daemon-reload
+
+- name: Bungee Server | restart the service and make sure it is enabeld.
+  action: service name=bungee-{{ port }} state=restarted enabled=yes
