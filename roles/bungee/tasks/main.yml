@@ -24,6 +24,12 @@
 - name: Bungee Server | systemd service file should exist.
   template: src=systemd.service dest=/etc/systemd/system/bungee-{{ port }}.service
 
+- name: Bungee Server | firewalld open port
+  command: firewall-cmd --zone=public --add-port={{ port }}/tcp --permanent
+
+- name: Bungee Server | firewalld reload
+  command: firewall-cmd --reload
+
 - name: Bungee Server | systemd should reload
   command: systemctl daemon-reload
 

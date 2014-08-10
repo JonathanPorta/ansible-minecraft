@@ -1,4 +1,4 @@
 ---
 
-- name: SSH - Restart
+- name: ssh
   action: service name=sshd state=restarted

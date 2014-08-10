@@ -2,7 +2,7 @@
 # Minecraft Server Provisioning and Management
 - name: Minecraft Playbook - Deploy and manage Minecraft Server.
   hosts: all
-  user: portaj
+  user: portaj # For the very first run, you will probably need to use root.
   sudo: yes
 
   vars:
